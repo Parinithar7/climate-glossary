@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Climate Quest</title>
+
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="page">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <div class="header-text">
+
+                <h1>CLIMATE QUEST</h1>
+
+                <p>
+                    Explore the language of<br>
+                    changing planet
+                </p>
+
+
+            </div>
+
+            <!-- Globe -->
+            <div class="globe-container">
+                <img src="globe.png" alt="Earth globe" class="globe">
+            </div>
+
+        </header>
+
+
+        <!-- SEARCH -->
+        <div class="search-container">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search a climate term..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+        <nav class="navigation">
+
+            <button onclick="filterTerms('Climate')">Climate</button>
+            <button onclick="filterTerms('Nature')">Nature</button>
+            <button onclick="filterTerms('Energy')">Energy</button>
+            <button onclick="filterTerms('Carbon')">Carbon</button>
+            <button onclick="filterTerms('Solutions')">Solutions</button>
+
+        </nav>
+
+
+
+           <!-- TERM CARDS -->
+        <section class="terms" id="termsContainer">
+
+    <!-- Terms will be loaded automatically from Google Sheets -->
+
+        </section>
+        
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
