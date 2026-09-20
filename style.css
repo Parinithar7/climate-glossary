@@ -617,7 +617,7 @@ body {
     }
 
     .header {
-        min-height: 300px;
+        min-height: 260px;
     }
 
     .header-text {
@@ -651,12 +651,13 @@ body {
     */
 
     .globe-container {
-        width: 155px;
-        height: 155px;
+        width: 145px;
+        height: 145px;
 
-        right: -5px;
+        right: -2px;
 
-        top: 78%;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     /*
