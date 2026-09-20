@@ -1,11 +1,12 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbzxn8GtpVtPkJ3ekFU-hX8ZiJYyzlFCdodnJiMIxRUcnKCveiY6nnSR6SE4SAsOswGLwg/exec";
-
 let terms = [];
 
+let currentCategory = "all";
 
-// ===============================
+
+// =====================================================
 // LOAD TERMS
-// ===============================
+// =====================================================
 
 async function loadTerms() {
 
@@ -37,24 +38,23 @@ async function loadTerms() {
             document.getElementById("termsContainer");
 
         container.innerHTML = `
-            <p style="color:red;">
-                Error loading terms. Check browser console.
-            </p>
+            <div class="error-message">
+                <p>Unable to load climate terms.</p>
+                <small>Check your Google Sheets connection.</small>
+            </div>
         `;
     }
 }
 
 
-// ===============================
+// =====================================================
 // DISPLAY TERMS
-// ===============================
+// =====================================================
 
 function displayTerms(data) {
 
     const container =
         document.getElementById("termsContainer");
-
-    console.log("Container:", container);
 
     if (!container) {
 
@@ -65,34 +65,75 @@ function displayTerms(data) {
 
     container.innerHTML = "";
 
+    if (!data || data.length === 0) {
+
+        container.innerHTML = `
+            <div class="no-results">
+                No climate terms found.
+            </div>
+        `;
+
+        return;
+    }
+
+
     data.forEach(function(term) {
 
-        const card = document.createElement("div");
+        const card =
+            document.createElement("div");
 
         card.className = "term-card";
 
-        card.dataset.term = term.Term || "";
-        card.dataset.category = term.Category || "";
+
+        const termName =
+            term.Term || "";
+
+        const definition =
+            term.Definition || "";
+
+        const category =
+            term.Category || "";
+
+        const example =
+            term.Example || "";
+
+
+        card.dataset.term =
+            termName.toLowerCase();
+
+        card.dataset.category =
+            category.toLowerCase();
+
 
         card.innerHTML = `
-            <h2>${term.Term || ""}</h2>
 
-            <p>${term.Definition || ""}</p>
+            <h2>
+                ${termName}
+            </h2>
+
+            <p>
+                ${definition}
+            </p>
 
             <p>
                 <strong>Category:</strong>
-                ${term.Category || ""}
+                ${category}
             </p>
 
             <p>
                 <strong>Example:</strong>
-                ${term.Example || ""}
+                ${example}
             </p>
+
         `;
+
 
         container.appendChild(card);
 
     });
+
+
+    applyFilters();
 
     console.log(
         "Cards created:",
@@ -101,66 +142,78 @@ function displayTerms(data) {
 }
 
 
-// ===============================
+// =====================================================
 // SEARCH
-// ===============================
+// =====================================================
 
 function setupSearch() {
 
     const searchInput =
         document.getElementById("searchInput");
 
+
     if (!searchInput) {
+
         console.error("Search input not found");
+
         return;
     }
 
-    searchInput.addEventListener("input", function() {
 
-        const searchValue =
-            this.value.toLowerCase().trim();
+    searchInput.addEventListener(
+        "input",
+        function() {
 
-        const cards =
-            document.querySelectorAll(".term-card");
+            applyFilters();
 
-        cards.forEach(function(card) {
-
-            const text =
-                card.innerText.toLowerCase();
-
-            if (text.includes(searchValue)) {
-
-                card.classList.remove("hidden");
-
-            } else {
-
-                card.classList.add("hidden");
-
-            }
-
-        });
-
-    });
+        }
+    );
 }
 
 
-// ===============================
-// CATEGORY FILTER
-// ===============================
+// =====================================================
+// APPLY SEARCH + CATEGORY FILTER
+// =====================================================
 
-function filterTerms(category) {
+function applyFilters() {
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+
+    const searchValue =
+        searchInput
+            ? searchInput.value.toLowerCase().trim()
+            : "";
+
 
     const cards =
         document.querySelectorAll(".term-card");
 
+
     cards.forEach(function(card) {
 
+        const cardText =
+            card.innerText.toLowerCase();
+
+
         const cardCategory =
-            card.dataset.category;
+            card.dataset.category || "";
+
+
+        const matchesSearch =
+            cardText.includes(searchValue);
+
+
+        const matchesCategory =
+            currentCategory === "all" ||
+            cardCategory ===
+            currentCategory.toLowerCase();
+
 
         if (
-            category === "all" ||
-            cardCategory === category
+            matchesSearch &&
+            matchesCategory
         ) {
 
             card.classList.remove("hidden");
@@ -172,26 +225,47 @@ function filterTerms(category) {
         }
 
     });
+}
+
+
+// =====================================================
+// CATEGORY FILTER
+// =====================================================
+
+function filterTerms(category) {
+
+    currentCategory =
+        category || "all";
+
 
     const searchInput =
         document.getElementById("searchInput");
 
+
     if (searchInput) {
+
         searchInput.value = "";
+
     }
+
+
+    applyFilters();
 }
 
 
-// ===============================
+// =====================================================
 // START
-// ===============================
+// =====================================================
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
-    console.log("Website loaded");
+        console.log("Climate Quest loaded");
 
-    setupSearch();
+        setupSearch();
 
-    loadTerms();
+        loadTerms();
 
-});
+    }
+);
