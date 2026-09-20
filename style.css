@@ -22,11 +22,8 @@ html {
 
 body {
     min-height: 100vh;
-
     background: #1e1e1e;
-
     font-family: "Inter", Arial, sans-serif;
-
     overflow-x: hidden;
 }
 
@@ -320,8 +317,477 @@ body {
         box-shadow 0.25s ease;
 }
 
+.term-card:hover {
+    transform: translateY(-5px);
 
-/* First three cards */
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.20);
+}
 
-.ter
+
+/* =========================================================
+   TERM CARD TEXT
+========================================================= */
+
+.term-card h2,
+.term-card h3 {
+    color: #071a16;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    margin-bottom: 10px;
+}
+
+.term-card p {
+    color: #53635e;
+
+    font-size: 11px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1100px) {
+
+    .page {
+        padding: 40px 40px 40px;
+    }
+
+    .header {
+        min-height: 250px;
+    }
+
+    .header-text {
+        width: 58%;
+    }
+
+    .header h1 {
+        font-size: clamp(42px, 7vw, 64px);
+    }
+
+    .globe-container {
+        width: 250px;
+        height: 250px;
+
+        right: 0;
+    }
+
+    .terms {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 18px;
+
+        margin-top: 40px;
+    }
+}
+
+
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+
+    .page {
+        padding: 35px 30px 40px;
+    }
+
+    .header {
+        min-height: 240px;
+    }
+
+    .header-text {
+        width: 60%;
+    }
+
+    .header h1 {
+        font-size: clamp(40px, 8vw, 58px);
+    }
+
+    .header p {
+        font-size: 13px;
+
+        max-width: 350px;
+    }
+
+    .globe-container {
+        width: 210px;
+
+        height: 210px;
+
+        right: -5px;
+    }
+
+    .search-container {
+        width: 85%;
+    }
+
+    .navigation {
+        gap: 20px;
+    }
+
+    .terms {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 16px;
+
+        margin-top: 35px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    /* -----------------------------------------------------
+       PAGE
+    ----------------------------------------------------- */
+
+    .page {
+        width: 100%;
+
+        min-height: 100vh;
+
+        padding: 25px 20px 35px;
+
+        overflow: hidden;
+    }
+
+
+    /* -----------------------------------------------------
+       HEADER
+    ----------------------------------------------------- */
+
+    .header {
+        position: relative;
+
+        display: block;
+
+        width: 100%;
+
+        min-height: 250px;
+    }
+
+
+    /* -----------------------------------------------------
+       HEADER TEXT
+    ----------------------------------------------------- */
+
+    .header-text {
+        position: relative;
+
+        z-index: 5;
+
+        width: 100%;
+
+        padding-top: 12px;
+    }
+
+    .header-text::before {
+        font-size: 9px;
+
+        letter-spacing: 2px;
+
+        margin-bottom: 11px;
+    }
+
+    .header h1 {
+        position: relative;
+
+        z-index: 5;
+
+        width: 215px;
+
+        color: #ffffff;
+
+        font-size: clamp(38px, 13vw, 52px);
+
+        line-height: 0.88;
+
+        letter-spacing: -2.5px;
+    }
+
+    .header p {
+        position: relative;
+
+        z-index: 5;
+
+        width: 210px;
+
+        color: #a9bbb5;
+
+        font-size: 11px;
+
+        line-height: 1.5;
+
+        margin-top: 15px;
+    }
+
+
+    /* -----------------------------------------------------
+       GLOBE - MOBILE
+       
+       IMPORTANT:
+       This overrides the desktop:
+       top: 50%;
+       transform: translateY(-50%);
+       
+       The globe now stays beside the title.
+    ----------------------------------------------------- */
+
+    .globe-container {
+        position: absolute;
+
+        z-index: 2;
+
+        top: 48px;
+
+        right: -8px;
+
+        width: 125px;
+
+        height: 125px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        transform: none;
+
+        pointer-events: none;
+    }
+
+    .globe {
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: contain;
+
+        display: block;
+    }
+
+
+    /* -----------------------------------------------------
+       SEARCH
+    ----------------------------------------------------- */
+
+    .search-container {
+        position: relative;
+
+        z-index: 5;
+
+        width: 100%;
+
+        height: 44px;
+
+        margin: 0;
+
+        border-radius: 8px;
+    }
+
+    .search-container input {
+        font-size: 12px;
+
+        padding: 0 15px;
+    }
+
+
+    /* -----------------------------------------------------
+       NAVIGATION
+    ----------------------------------------------------- */
+
+    .navigation {
+        position: relative;
+
+        z-index: 5;
+
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        flex-wrap: wrap;
+
+        gap: 8px 13px;
+
+        margin-top: 14px;
+    }
+
+    .navigation button {
+        font-size: 9px;
+
+        padding: 5px 3px;
+    }
+
+
+    /* -----------------------------------------------------
+       TERMS
+    ----------------------------------------------------- */
+
+    .terms {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+
+        margin-top: 30px;
+    }
+
+
+    /* -----------------------------------------------------
+       TERM CARDS
+    ----------------------------------------------------- */
+
+    .term-card {
+        width: 100%;
+
+        min-height: 125px;
+
+        padding: 18px 16px;
+
+        border-radius: 9px;
+    }
+
+    .term-card h2,
+    .term-card h3 {
+        font-size: 15px;
+
+        margin-bottom: 8px;
+    }
+
+    .term-card p {
+        font-size: 11px;
+
+        line-height: 1.5;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   360px and below
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .page {
+        padding-left: 16px;
+
+        padding-right: 16px;
+    }
+
+    .header {
+        min-height: 245px;
+    }
+
+    .header h1 {
+        width: 190px;
+
+        font-size: 38px;
+    }
+
+    .header p {
+        width: 185px;
+
+        font-size: 10.5px;
+    }
+
+    .globe-container {
+        top: 50px;
+
+        right: -12px;
+
+        width: 110px;
+
+        height: 110px;
+    }
+
+    .search-container {
+        height: 42px;
+    }
+
+    .navigation {
+        gap: 6px 10px;
+    }
+
+    .navigation button {
+        font-size: 8.5px;
+    }
+
+    .terms {
+        gap: 12px;
+
+        margin-top: 25px;
+    }
+}
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+========================================================= */
+
+@media (max-width: 700px) and (orientation: landscape) {
+
+    .page {
+        padding-top: 20px;
+    }
+
+    .header {
+        min-height: 220px;
+    }
+
+    .header-text {
+        padding-top: 5px;
+    }
+
+    .header h1 {
+        font-size: 42px;
+
+        width: 230px;
+    }
+
+    .header p {
+        width: 250px;
+
+        margin-top: 10px;
+    }
+
+    .globe-container {
+        top: 25px;
+
+        right: 20px;
+
+        width: 150px;
+
+        height: 150px;
+    }
+
+    .search-container {
+        width: 80%;
+    }
+
+    .terms {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
 ```
