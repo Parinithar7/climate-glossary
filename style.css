@@ -1,7 +1,8 @@
 ```css
 /* =========================================================
    CLIMATE QUEST
-   RESPONSIVE DESKTOP + TABLET + MOBILE
+   FULLY RESPONSIVE
+   DESKTOP + LAPTOP + TABLET + MOBILE
 ========================================================= */
 
 
@@ -21,8 +22,11 @@ html {
 
 body {
     min-height: 100vh;
+
     background: #1e1e1e;
+
     font-family: "Inter", Arial, sans-serif;
+
     overflow-x: hidden;
 }
 
@@ -32,9 +36,13 @@ body {
 ========================================================= */
 
 .page {
+    position: relative;
+
     width: 100%;
     max-width: 1300px;
+
     min-height: 100vh;
+
     margin: 0 auto;
 
     background: #071a16;
@@ -53,14 +61,22 @@ body {
     position: relative;
 
     width: 100%;
-    min-height: 280px;
+
+    min-height: 270px;
 
     display: flex;
+
     align-items: center;
 }
 
+
+/* =========================================================
+   HEADER TEXT
+========================================================= */
+
 .header-text {
     position: relative;
+
     z-index: 5;
 
     width: 55%;
@@ -74,6 +90,7 @@ body {
     color: #9bcf73;
 
     font-size: 11px;
+
     font-weight: 600;
 
     letter-spacing: 3px;
@@ -89,6 +106,7 @@ body {
     font-weight: 800;
 
     letter-spacing: -3px;
+
     line-height: 0.95;
 
     text-transform: uppercase;
@@ -98,6 +116,9 @@ body {
     color: #a9bbb5;
 
     font-size: 14px;
+
+    font-weight: 400;
+
     line-height: 1.6;
 
     margin-top: 20px;
@@ -107,7 +128,7 @@ body {
 
 
 /* =========================================================
-   GLOBE
+   GLOBE - DESKTOP
 ========================================================= */
 
 .globe-container {
@@ -116,15 +137,19 @@ body {
     z-index: 2;
 
     right: 20px;
+
     top: 50%;
 
     transform: translateY(-50%);
 
     width: 300px;
+
     height: 300px;
 
     display: flex;
+
     justify-content: center;
+
     align-items: center;
 
     pointer-events: none;
@@ -132,6 +157,7 @@ body {
 
 .globe {
     width: 100%;
+
     height: 100%;
 
     object-fit: contain;
@@ -141,11 +167,12 @@ body {
 
 
 /* =========================================================
-   SEARCH
+   SEARCH BAR
 ========================================================= */
 
 .search-container {
     position: relative;
+
     z-index: 5;
 
     width: min(680px, 70%);
@@ -168,14 +195,17 @@ body {
 .search-container:focus-within {
     border-color: #9bcf73;
 
-    box-shadow: 0 0 0 2px rgba(155, 207, 115, 0.08);
+    box-shadow:
+        0 0 0 2px rgba(155, 207, 115, 0.08);
 }
 
 .search-container input {
     width: 100%;
+
     height: 100%;
 
     border: none;
+
     outline: none;
 
     background: transparent;
@@ -191,6 +221,8 @@ body {
 
 .search-container input::placeholder {
     color: #9db3ac;
+
+    opacity: 1;
 }
 
 
@@ -200,6 +232,7 @@ body {
 
 .navigation {
     position: relative;
+
     z-index: 5;
 
     width: 100%;
@@ -207,6 +240,7 @@ body {
     display: flex;
 
     justify-content: center;
+
     align-items: center;
 
     flex-wrap: wrap;
@@ -226,23 +260,22 @@ body {
     font-family: "Inter", Arial, sans-serif;
 
     font-size: 11px;
+
     font-weight: 500;
 
     cursor: pointer;
 
     padding: 7px 4px;
 
-    transition: 0.2s ease;
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
 .navigation button:hover {
     color: #ffffff;
 
     transform: translateY(-2px);
-}
-
-.navigation button:active {
-    transform: translateY(0);
 }
 
 
@@ -288,513 +321,7 @@ body {
 }
 
 
-/*
-   Keep the original card arrangement
-*/
+/* First three cards */
 
-.term-card:nth-child(1),
-.term-card:nth-child(2),
-.term-card:nth-child(3) {
-    grid-column: span 2;
-}
-
-.term-card:nth-child(4),
-.term-card:nth-child(5) {
-    grid-column: span 3;
-}
-
-
-/* =========================================================
-   CARD COLORS
-========================================================= */
-
-.term-card.grey-card {
-    background: #d5d8d7;
-}
-
-
-/* =========================================================
-   CARD HOVER
-========================================================= */
-
-.term-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 12px 28px rgba(0, 0, 0, 0.22);
-}
-
-
-/* =========================================================
-   CARD TITLE
-========================================================= */
-
-.term-card h2 {
-    color: #0b3b30;
-
-    font-size: 16px;
-
-    font-weight: 700;
-
-    line-height: 1.2;
-
-    margin-bottom: 10px;
-
-    overflow-wrap: anywhere;
-}
-
-
-/* =========================================================
-   CARD TEXT
-========================================================= */
-
-.term-card p {
-    color: #3e504a;
-
-    font-size: 11px;
-
-    font-weight: 400;
-
-    line-height: 1.55;
-
-    margin-bottom: 7px;
-
-    overflow-wrap: anywhere;
-}
-
-.term-card strong {
-    color: #245442;
-}
-
-
-/* =========================================================
-   CATEGORY
-========================================================= */
-
-.term-card .category {
-    display: inline-block;
-
-    width: fit-content;
-
-    margin-top: auto;
-
-    padding: 4px 9px;
-
-    border-radius: 20px;
-
-    background: #c8e9bd;
-
-    color: #245442;
-
-    font-size: 8px;
-
-    font-weight: 600;
-}
-
-
-/* =========================================================
-   OPTIONAL CARD BUTTON
-========================================================= */
-
-.term-card button {
-    border: none;
-
-    background: transparent;
-
-    color: #22624e;
-
-    font-size: 10px;
-
-    font-weight: 600;
-
-    cursor: pointer;
-
-    text-align: left;
-
-    margin-top: 12px;
-}
-
-.term-card button:hover {
-    color: #0b3b30;
-}
-
-
-/* =========================================================
-   HIDDEN
-========================================================= */
-
-.term-card.hidden {
-    display: none;
-}
-
-
-/* =========================================================
-   LARGE LAPTOP
-   1200px and below
-========================================================= */
-
-@media (max-width: 1200px) {
-
-    .page {
-        padding: 45px 45px 40px;
-    }
-
-    .header {
-        min-height: 260px;
-    }
-
-    .globe-container {
-        width: 270px;
-        height: 270px;
-        right: 0;
-    }
-
-    .terms {
-        gap: 16px;
-    }
-}
-
-
-/* =========================================================
-   LAPTOP / SMALL DESKTOP
-   1000px and below
-========================================================= */
-
-@media (max-width: 1000px) {
-
-    .page {
-        padding: 40px 35px 35px;
-    }
-
-    .header {
-        min-height: 240px;
-    }
-
-    .header-text {
-        width: 60%;
-    }
-
-    .header h1 {
-        font-size: clamp(40px, 6vw, 55px);
-    }
-
-    .header p {
-        font-size: 12px;
-    }
-
-    .globe-container {
-        width: 225px;
-        height: 225px;
-        right: 10px;
-    }
-
-    .search-container {
-        width: 75%;
-    }
-
-    .navigation {
-        gap: 25px;
-    }
-
-    .terms {
-        gap: 15px;
-    }
-
-    .term-card {
-        min-height: 135px;
-        padding: 17px;
-    }
-
-    .term-card h2 {
-        font-size: 14px;
-    }
-
-    .term-card p {
-        font-size: 10px;
-    }
-}
-
-
-/* =========================================================
-   TABLET
-   750px and below
-========================================================= */
-
-@media (max-width: 750px) {
-
-    .page {
-        padding: 35px 25px 35px;
-    }
-
-    .header {
-        min-height: 280px;
-
-        align-items: flex-start;
-    }
-
-    .header-text {
-        width: 65%;
-        padding-top: 10px;
-    }
-
-    .header-text::before {
-        font-size: 9px;
-        letter-spacing: 2px;
-        margin-bottom: 12px;
-    }
-
-    .header h1 {
-        font-size: clamp(38px, 8vw, 48px);
-        letter-spacing: -2px;
-    }
-
-    .header p {
-        font-size: 11px;
-        max-width: 270px;
-        margin-top: 16px;
-    }
-
-    .globe-container {
-        width: 190px;
-        height: 190px;
-
-        right: -5px;
-        top: 65%;
-    }
-
-    .search-container {
-        width: 90%;
-        height: 44px;
-    }
-
-    .navigation {
-        gap: 16px;
-        margin-top: 15px;
-    }
-
-    .navigation button {
-        font-size: 10px;
-    }
-
-    /*
-       Two cards per row
-    */
-
-    .terms {
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 14px;
-
-        margin-top: 35px;
-    }
-
-    .term-card:nth-child(n) {
-        grid-column: span 1;
-    }
-
-    .term-card {
-        min-height: 135px;
-        padding: 15px;
-    }
-}
-
-
-/* =========================================================
-   MOBILE
-   500px and below
-========================================================= */
-
-@media (max-width: 500px) {
-
-    body {
-        background: #071a16;
-    }
-
-    .page {
-        width: 100%;
-
-        padding: 28px 17px 35px;
-    }
-
-    .header {
-        min-height: 260px;
-    }
-
-    .header-text {
-        width: 100%;
-    }
-
-    .header-text::before {
-        font-size: 8px;
-        letter-spacing: 2px;
-        margin-bottom: 12px;
-    }
-
-    .header h1 {
-        font-size: clamp(35px, 11vw, 44px);
-
-        letter-spacing: -1.5px;
-
-        max-width: 280px;
-    }
-
-    .header p {
-        font-size: 10px;
-
-        max-width: 220px;
-
-        margin-top: 15px;
-    }
-
-    /*
-       Smaller globe
-    */
-
-    .globe-container {
-        width: 145px;
-        height: 145px;
-
-        right: -2px;
-
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    /*
-       Full-width search
-    */
-
-    .search-container {
-        width: 100%;
-
-        height: 42px;
-    }
-
-    .search-container input {
-        font-size: 11px;
-
-        padding: 0 13px;
-    }
-
-    /*
-       Mobile navigation
-    */
-
-    .navigation {
-        gap: 8px 16px;
-
-        margin-top: 14px;
-    }
-
-    .navigation button {
-        font-size: 9px;
-
-        padding: 6px 2px;
-    }
-
-    /*
-       One card per row
-    */
-
-    .terms {
-        grid-template-columns: 1fr;
-
-        gap: 12px;
-
-        margin-top: 30px;
-    }
-
-    .term-card:nth-child(n) {
-        grid-column: span 1;
-    }
-
-    .term-card {
-        min-height: auto;
-
-        padding: 17px 15px;
-    }
-
-    .term-card h2 {
-        font-size: 14px;
-
-        margin-bottom: 8px;
-    }
-
-    .term-card p {
-        font-size: 10px;
-
-        line-height: 1.5;
-    }
-}
-
-
-/* =========================================================
-   VERY SMALL PHONES
-   350px and below
-========================================================= */
-
-@media (max-width: 350px) {
-
-    .page {
-        padding-left: 13px;
-        padding-right: 13px;
-    }
-
-    .header {
-        min-height: 275px;
-    }
-
-    .header h1 {
-        font-size: 32px;
-    }
-
-    .header p {
-        font-size: 9px;
-    }
-
-    .globe-container {
-        width: 125px;
-        height: 125px;
-
-        top: 80%;
-    }
-
-    .navigation {
-        gap: 6px 11px;
-    }
-
-    .navigation button {
-        font-size: 8px;
-    }
-
-    .term-card {
-        padding: 14px;
-    }
-
-    .term-card h2 {
-        font-size: 13px;
-    }
-
-    .term-card p {
-        font-size: 9px;
-    }
-}
-
-
-/* =========================================================
-   TOUCH DEVICES
-========================================================= */
-
-@media (hover: none) {
-
-    .term-card:hover {
-        transform: none;
-        box-shadow: none;
-    }
-
-    .navigation button:hover {
-        transform: none;
-        color: #9bcf73;
-    }
-}
+.ter
 ```
